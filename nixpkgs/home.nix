@@ -10,10 +10,13 @@
   home.packages = [
     pkgs.htop
     pkgs.ripgrep
+    pkgs.cmake
+    pkgs.clang
     pkgs.python311
     pkgs.nodejs
     pkgs.rustup
     pkgs.opam
+    pkgs.racket
   ];
 
   # This value determines the Home Manager release that your
@@ -33,8 +36,8 @@
     enable = true;
     shellAliases = {
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch";
     };
+
     plugins = [
       # Need this when using Fish as a default macOS shell in order to pick
       # up ~/.nix-profile/bin
@@ -48,18 +51,29 @@
         };
       }
     ];
+
+    shellInit = ''
+      zoxide init fish | source
+      fish_add_path $HOME/.emacs.d/bin
+      fish_add_path $HOME/.cargo/bin
+      source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+    '';
+
+    interactiveShellInit = ''
+      set --global VISUAL "emacs"
+      set --global EDITOR "vim"
+    '';
   };
 
-  programs.keychain = {
-    enable = true;
-  };
+  programs.bat.enable = true;
+  programs.keychain.enable = true;
+  programs.zoxide.enable = true;
+  programs.skim.enable = true;
 
-  programs.bat = {
+  programs.git = {
     enable = true;
-    # config = {
-    #   theme = "GitHub";
-    #   italic-text = "always";
-    # };
+    userName = "Zijun Yu";
+    userEmail = "zijun.yu.joey@gmail.com";
   };
 
   programs.emacs = {
@@ -68,14 +82,5 @@
     #   epkgs.nix-mode
     #   epkgs.magit
     # ];
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Zijun Yu";
-    userEmail = "zijun.yu.joey@gmail.com";
-    aliases = {
-      prettylog = "...";
-    };
   };
 }
