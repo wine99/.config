@@ -1,4 +1,9 @@
-*
+/*
 !.gitignore
 !nix
 !nixpkgs
+
+!/fish
+/fish/*
+!/fish/fish_variables
+!/fish/functions
