@@ -10,9 +10,10 @@
   home.packages = [
     pkgs.htop
     pkgs.ripgrep
+    pkgs.ranger
     pkgs.cmake
-    pkgs.clang
-    pkgs.python311
+    pkgs.jdk
+    pkgs.python3
     pkgs.nodejs
     pkgs.rustup
     pkgs.opam
