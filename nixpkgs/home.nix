@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  python-with-packages = pkgs.python3.withPackages(ps: with ps; [
+  python-with-packages = pkgs.python3.withPackages (p: with p; [
+    black
     toolz
     numpy
     jupyterlab
@@ -44,6 +45,9 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -51,7 +55,7 @@ in
     };
 
     plugins = [
-      # Need this when using Fish as a default macOS shell in order to pick
+      # Need this when using Fish as a default shell in order to pick
       # up ~/.nix-profile/bin
       {
         name = "nix-env";
