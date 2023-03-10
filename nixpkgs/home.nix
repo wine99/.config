@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
+let
+  python-with-packages = pkgs.python3.withPackages(ps: with ps; [
+    toolz
+    numpy
+    jupyterlab
+  ]);
+in
+
 {
+  targets.genericLinux.enable = true;
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "zijun";
@@ -9,11 +19,12 @@
   # Packages that should be installed to the user profile.
   home.packages = [
     pkgs.htop
+    pkgs.p7zip
     pkgs.ripgrep
     pkgs.ranger
     pkgs.cmake
     pkgs.jdk
-    pkgs.python3
+    python-with-packages
     pkgs.nodejs
     pkgs.rustup
     pkgs.opam
