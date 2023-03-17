@@ -1,14 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  python-with-packages = pkgs.python3.withPackages (p: with p; [
-    black
-    toolz
-    numpy
-    jupyterlab
-  ]);
-in
-
 {
   targets.genericLinux.enable = true;
 
@@ -25,11 +16,19 @@ in
     pkgs.ranger
     pkgs.cmake
     pkgs.jdk
-    python-with-packages
+    (pkgs.python3.withPackages (p: with p; [
+      black
+      toolz
+      numpy
+      notebook
+    ]))
     pkgs.nodejs
+    pkgs.yarn
+    pkgs.nodePackages.typescript
     pkgs.rustup
     pkgs.opam
     pkgs.racket
+    pkgs.ghc pkgs.cabal-install pkgs.stack
   ];
 
   # This value determines the Home Manager release that your
