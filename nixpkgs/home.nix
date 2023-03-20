@@ -91,6 +91,13 @@
     userEmail = "zijun.yu.joey@gmail.com";
   };
 
+  programs.gh = {
+    enable = true;
+    extensions = [
+      pkgs.gh-dash
+    ];
+  };
+
   programs.emacs = {
     enable = true;
     # extraPackages = epkgs: [
