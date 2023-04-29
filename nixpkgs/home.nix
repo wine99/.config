@@ -14,6 +14,9 @@
     pkgs.p7zip
     pkgs.ripgrep
     pkgs.ranger
+    pkgs.graphviz
+    pkgs.gdb
+    pkgs.gef
     pkgs.cmake
     pkgs.jdk
     (pkgs.python3.withPackages (p: with p; [
@@ -27,8 +30,12 @@
     pkgs.nodePackages.typescript
     pkgs.rustup
     pkgs.opam
+    pkgs.coq
     pkgs.racket
     pkgs.ghc pkgs.cabal-install pkgs.stack
+    pkgs.graphviz
+    pkgs.pandoc
+    pkgs.texlive.combined.scheme-full
   ];
 
   # This value determines the Home Manager release that your
