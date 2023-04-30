@@ -32,7 +32,6 @@
     pkgs.opam
     pkgs.coq
     pkgs.racket
-    pkgs.ghc pkgs.cabal-install pkgs.stack
     pkgs.graphviz
     pkgs.pandoc
     pkgs.texlive.combined.scheme-full
@@ -78,6 +77,8 @@
       zoxide init fish | source
       fish_add_path $HOME/.emacs.d/bin
       fish_add_path $HOME/.cargo/bin
+      fish_add_path $HOME/.ghcup/bin
+      fish_add_path $HOME/.cabal/bin
       source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
     '';
 
