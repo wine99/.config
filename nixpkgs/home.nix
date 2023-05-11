@@ -10,13 +10,18 @@
 
   # Packages that should be installed to the user profile.
   home.packages = [
+    pkgs.fira
+    pkgs.fira-code
     pkgs.htop
     pkgs.p7zip
     pkgs.ripgrep
+    pkgs.fd
     pkgs.ranger
     pkgs.graphviz
     pkgs.gdb
     pkgs.gef
+    pkgs.shellcheck
+    pkgs.nixfmt
     pkgs.cmake
     pkgs.jdk
     (pkgs.python3.withPackages (p: with p; [
@@ -31,7 +36,9 @@
     pkgs.rustup
     pkgs.opam
     pkgs.coq
+    pkgs.idris2
     pkgs.racket
+    pkgs.chez
     pkgs.graphviz
     pkgs.pandoc
     pkgs.texlive.combined.scheme-full
@@ -79,6 +86,7 @@
       fish_add_path $HOME/.cargo/bin
       fish_add_path $HOME/.ghcup/bin
       fish_add_path $HOME/.cabal/bin
+      fish_add_path $HOME/.pack/bin
       source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
     '';
 
@@ -108,9 +116,5 @@
 
   programs.emacs = {
     enable = true;
-    # extraPackages = epkgs: [
-    #   epkgs.nix-mode
-    #   epkgs.magit
-    # ];
   };
 }
