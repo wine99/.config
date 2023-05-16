@@ -12,24 +12,19 @@
   home.packages = [
     pkgs.fira
     pkgs.fira-code
+    pkgs.fira-code-symbols
     pkgs.htop
     pkgs.p7zip
     pkgs.ripgrep
     pkgs.fd
     pkgs.ranger
     pkgs.graphviz
-    pkgs.gdb
-    pkgs.gef
+    pkgs.pandoc
+    pkgs.texlive.combined.scheme-full
     pkgs.shellcheck
     pkgs.nixfmt
     pkgs.cmake
     pkgs.jdk
-    (pkgs.python3.withPackages (p: with p; [
-      black
-      toolz
-      numpy
-      notebook
-    ]))
     pkgs.nodejs
     pkgs.yarn
     pkgs.nodePackages.typescript
@@ -39,9 +34,6 @@
     pkgs.idris2
     pkgs.racket
     pkgs.chez
-    pkgs.graphviz
-    pkgs.pandoc
-    pkgs.texlive.combined.scheme-full
   ];
 
   # This value determines the Home Manager release that your
@@ -82,6 +74,9 @@
 
     shellInit = ''
       zoxide init fish | source
+      set -Ux PYENV_ROOT $HOME/.pyenv
+      fish_add_path $PYENV_ROOT/bin
+      pyenv init - | source
       fish_add_path $HOME/.emacs.d/bin
       fish_add_path $HOME/.cargo/bin
       fish_add_path $HOME/.ghcup/bin
