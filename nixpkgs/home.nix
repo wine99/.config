@@ -101,7 +101,7 @@
 
   programs.git = {
     enable = true;
-    userName = "wine99";
+    userName = "Zijun Yu";
     userEmail = "zijun.yu.joey@gmail.com";
   };
 
