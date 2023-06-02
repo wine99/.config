@@ -101,13 +101,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Zijun Yu";
+    userName = "wine99";
     userEmail = "zijun.yu.joey@gmail.com";
-    extraConfig = {
-      credential = {
-        helper = "'cache --timeout=3600'";
-      };
-    };
   };
 
   programs.gh = {
