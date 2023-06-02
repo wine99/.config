@@ -17,6 +17,7 @@
     pkgs.p7zip
     pkgs.ripgrep
     pkgs.fd
+    pkgs.sd
     pkgs.ranger
     pkgs.graphviz
     pkgs.pandoc
@@ -25,6 +26,7 @@
     pkgs.nixfmt
     pkgs.cmake
     pkgs.jdk
+    pkgs.poetry
     pkgs.nodejs
     pkgs.yarn
     pkgs.nodePackages.typescript
@@ -73,6 +75,7 @@
     ];
 
     shellInit = ''
+      fish_add_path $HOME/.local/bin
       zoxide init fish | source
       set -Ux PYENV_ROOT $HOME/.pyenv
       fish_add_path $PYENV_ROOT/bin
@@ -100,6 +103,11 @@
     enable = true;
     userName = "Zijun Yu";
     userEmail = "zijun.yu.joey@gmail.com";
+    extraConfig = {
+      credential = {
+        helper = "'cache --timeout=3600'";
+      };
+    };
   };
 
   programs.gh = {
