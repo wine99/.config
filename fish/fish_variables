@@ -1,7 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:58
-SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXXkTkYS3/agent\x2e57
+SETUVAR --export PYENV_ROOT:/home/zijun/\x2epyenv
+SETUVAR --export SSH_AGENT_PID:15452
+SETUVAR --export SSH_AUTH_SOCK:/tmp/ssh\x2dXXXXXXGdvQx5/agent\x2e15451
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:4c566a
 SETUVAR fish_color_cancel:\x2d\x2dreverse
@@ -42,4 +43,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_pager_color_selected_completion:
 SETUVAR fish_pager_color_selected_description:
 SETUVAR fish_pager_color_selected_prefix:
-SETUVAR fish_user_paths:/home/zijun/\x2ecabal/bin\x1e/home/zijun/\x2eemacs\x2ed/bin\x1e/home/zijun/\x2epack/bin\x1e/home/zijun/\x2eghcup/bin
+SETUVAR fish_user_paths:/home/zijun/\x2epyenv/bin\x1e/home/zijun/\x2ecabal/bin\x1e/home/zijun/\x2eemacs\x2ed/bin\x1e/home/zijun/\x2epack/bin\x1e/home/zijun/\x2eghcup/bin
